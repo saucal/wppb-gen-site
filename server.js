@@ -48,6 +48,8 @@ app.route('/')
 		var pluginAuthorURI = "";
 		var pluginDescription = "";
 		var pluginNamePackage = "";
+		var pluginNameShortPackage = "";
+		var pluginNameShortPackageCapitalized = "";
 		var pluginNameInstance = "";
 		var pluginAuthorEmail = "";
 		var pluginAuthorFull = "";
@@ -66,6 +68,8 @@ app.route('/')
 		pluginAuthorURI = String(data.author.uri).length ? data.author.uri : 'http://mydomain.tld';
 		pluginAuthorEmail = String(data.author.email).length ? data.author.email : 'my@email.tld';
 		pluginNamePackage = capitalize( pluginSlug );
+		pluginNameShortPackage = String(data.shortpkg).length ? data.shortpkg : 'APlugin';
+		pluginNameContantsPrefix = capitalize( pluginNameShortPackage );
 		pluginNameInstance = pluginSlug.replace(/-/gi, '_');
 		pluginAuthorFull = pluginAuthor +' <'+ pluginAuthorEmail + '>';
 
@@ -203,6 +207,36 @@ app.route('/')
 					regex: "plugin-name",
 
 					replacement: pluginSlug,
+
+					paths:[destination + '/' + pluginSlug],
+
+					recursive: true,
+
+					silent: true
+
+				});
+
+				//find Plugin slug
+				replace({
+
+					regex: "PName",
+
+					replacement: pluginNameShortPackage,
+
+					paths:[destination + '/' + pluginSlug],
+
+					recursive: true,
+
+					silent: true
+
+				});
+
+					//find Plugin slug
+				replace({
+
+					regex: "PNAME",
+
+					replacement: pluginNameContantsPrefix,
 
 					paths:[destination + '/' + pluginSlug],
 

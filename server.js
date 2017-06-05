@@ -49,7 +49,7 @@ app.route('/')
 		var pluginDescription = "";
 		var pluginNamePackage = "";
 		var pluginNameShortPackage = "";
-		var pluginNameShortPackageCapitalized = "";
+		var pluginNameContantsPrefix = "";
 		var pluginNameInstance = "";
 		var pluginAuthorEmail = "";
 		var pluginAuthorFull = "";

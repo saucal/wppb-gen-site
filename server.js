@@ -48,6 +48,9 @@ app.route('/')
 		var pluginAuthorURI = "";
 		var pluginDescription = "";
 		var pluginNamePackage = "";
+		var pluginNameShortPackage = "";
+		var pluginNameContantsPrefix = "";
+		var pluginNameSingleton = "";
 		var pluginNameInstance = "";
 		var pluginAuthorEmail = "";
 		var pluginAuthorFull = "";
@@ -62,10 +65,13 @@ app.route('/')
 		pluginSlug = String(data.slug).length ? String(data.slug).toLowerCase() : 'amazing-plugin';
 		pluginName = String(data.name).length ? data.name : 'Amazing Plugin';
 		pluginURI = String(data.uri).length ? data.uri : 'http://example.com/amazing-plugin-uri/' ;
-		pluginAuthor = String(data.author.name).length ? data.author.name : 'Plugin Author' ;
-		pluginAuthorURI = String(data.author.uri).length ? data.author.uri : 'http://mydomain.tld';
-		pluginAuthorEmail = String(data.author.email).length ? data.author.email : 'my@email.tld';
+		pluginAuthor = String(data.author.name).length ? data.author.name : 'SAU/CAL' ;
+		pluginAuthorURI = String(data.author.uri).length ? data.author.uri : 'https://saucal.com';
+		pluginAuthorEmail = String(data.author.email).length ? data.author.email : 'info@saucal.com';
 		pluginNamePackage = capitalize( pluginSlug );
+		pluginNameShortPackage = String(data.shortpkg).length ? data.shortpkg : 'APlugin';
+		pluginNameContantsPrefix = pluginNameShortPackage.toUpperCase();
+		pluginNameSingleton = String(data.singleton).length ? data.singleton : 'APluginSingleton';
 		pluginNameInstance = pluginSlug.replace(/-/gi, '_');
 		pluginAuthorFull = pluginAuthor +' <'+ pluginAuthorEmail + '>';
 
@@ -212,6 +218,66 @@ app.route('/')
 
 				});
 
+				//find Plugin Singleton
+				replace({
+
+					regex: "PNameSingleton",
+
+					replacement: pluginNameSingleton,
+
+					paths:[destination + '/' + pluginSlug],
+
+					recursive: true,
+
+					silent: true
+
+				});
+
+				//find Plugin Shortname
+				replace({
+
+					regex: "PName",
+
+					replacement: pluginNameShortPackage,
+
+					paths:[destination + '/' + pluginSlug],
+
+					recursive: true,
+
+					silent: true
+
+				});
+
+				//find Plugin shortname (lowercase)
+				replace({
+
+					regex: "pname",
+
+					replacement: pluginNameShortPackage.toLowerCase(),
+
+					paths:[destination + '/' + pluginSlug],
+
+					recursive: true,
+
+					silent: true
+
+				});
+
+					//find Plugin constants (shortname uppercased)
+				replace({
+
+					regex: "PNAME",
+
+					replacement: pluginNameContantsPrefix,
+
+					paths:[destination + '/' + pluginSlug],
+
+					recursive: true,
+
+					silent: true
+
+				});
+
 				//find Author URI
 				replace({
 
@@ -234,7 +300,7 @@ app.route('/')
 
 					replacement: pluginNameInstance,
 
-					paths:[destination + '/' + pluginSlug + '/' + pluginSlug +'.php'],
+					paths:[destination + '/' + pluginSlug],
 
 					recursive: true,
 

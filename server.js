@@ -64,9 +64,9 @@ app.route('/')
 		pluginSlug = String(data.slug).length ? String(data.slug).toLowerCase() : 'amazing-plugin';
 		pluginName = String(data.name).length ? data.name : 'Amazing Plugin';
 		pluginURI = String(data.uri).length ? data.uri : 'http://example.com/amazing-plugin-uri/' ;
-		pluginAuthor = String(data.author.name).length ? data.author.name : 'Plugin Author' ;
-		pluginAuthorURI = String(data.author.uri).length ? data.author.uri : 'http://mydomain.tld';
-		pluginAuthorEmail = String(data.author.email).length ? data.author.email : 'my@email.tld';
+		pluginAuthor = String(data.author.name).length ? data.author.name : 'SAU/CAL' ;
+		pluginAuthorURI = String(data.author.uri).length ? data.author.uri : 'https://saucal.com';
+		pluginAuthorEmail = String(data.author.email).length ? data.author.email : 'info@saucal.com';
 		pluginNamePackage = capitalize( pluginSlug );
 		pluginNameShortPackage = String(data.shortpkg).length ? data.shortpkg : 'APlugin';
 		pluginNameContantsPrefix = capitalize( pluginNameShortPackage );

@@ -25,6 +25,10 @@ app.set('views', path.join( __dirname, 'views' ));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 
+app.route('/force-refresh').get(function(req, res){
+	getSourceCode();
+	res.redirect('/');
+});
 
 app.route('/')
 	//GET REQUEST DRAW THE HOME PAGE

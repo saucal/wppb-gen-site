@@ -248,7 +248,22 @@ app.route('/')
 
 				});
 
-					//find Plugin slug
+				//find Plugin shortname (lowercase)
+				replace({
+
+					regex: "pname",
+
+					replacement: pluginNameShortPackage.toLowerCase(),
+
+					paths:[destination + '/' + pluginSlug],
+
+					recursive: true,
+
+					silent: true
+
+				});
+
+					//find Plugin constants (shortname uppercased)
 				replace({
 
 					regex: "PNAME",
@@ -285,7 +300,7 @@ app.route('/')
 
 					replacement: pluginNameInstance,
 
-					paths:[destination + '/' + pluginSlug + '/' + pluginSlug +'.php'],
+					paths:[destination + '/' + pluginSlug],
 
 					recursive: true,
 

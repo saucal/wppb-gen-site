@@ -6,7 +6,7 @@
 
 var express = require('express')
 var app = express();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3456;
 var path = require('path');
 var ghdownload = require('github-download');
 var rimraf = require('rimraf');
@@ -25,6 +25,10 @@ app.set('views', path.join( __dirname, 'views' ));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 
+app.route('/force-refresh').get(function(req, res){
+	getSourceCode();
+	res.redirect('/');
+});
 
 app.route('/')
 	//GET REQUEST DRAW THE HOME PAGE
@@ -285,7 +289,7 @@ clean.start();
  */
 var getSourceCode = function(){
 
-	var repo = {user: 'DevinVinson', repo: 'WordPress-Plugin-Boilerplate', ref: 'master'};
+	var repo = {user: 'saucalinc', repo: 'WordPress-Plugin-Boilerplate', ref: 'master'};
 
 	var destination = process.cwd() + "/source/";
 

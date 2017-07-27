@@ -69,7 +69,7 @@ app.route('/')
 		pluginAuthorEmail = String(data.author.email).length ? data.author.email : 'info@saucal.com';
 		pluginNamePackage = capitalize( pluginSlug );
 		pluginNameShortPackage = String(data.shortpkg).length ? data.shortpkg : 'APlugin';
-		pluginNameContantsPrefix = capitalize( pluginNameShortPackage );
+		pluginNameContantsPrefix = pluginNameShortPackage.toUpperCase();
 		pluginNameInstance = pluginSlug.replace(/-/gi, '_');
 		pluginAuthorFull = pluginAuthor +' <'+ pluginAuthorEmail + '>';
 

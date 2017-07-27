@@ -50,6 +50,7 @@ app.route('/')
 		var pluginNamePackage = "";
 		var pluginNameShortPackage = "";
 		var pluginNameContantsPrefix = "";
+		var pluginNameSingleton = "";
 		var pluginNameInstance = "";
 		var pluginAuthorEmail = "";
 		var pluginAuthorFull = "";
@@ -70,6 +71,7 @@ app.route('/')
 		pluginNamePackage = capitalize( pluginSlug );
 		pluginNameShortPackage = String(data.shortpkg).length ? data.shortpkg : 'APlugin';
 		pluginNameContantsPrefix = pluginNameShortPackage.toUpperCase();
+		pluginNameSingleton = String(data.singleton).length ? data.singleton : 'APluginSingleton';
 		pluginNameInstance = pluginSlug.replace(/-/gi, '_');
 		pluginAuthorFull = pluginAuthor +' <'+ pluginAuthorEmail + '>';
 
@@ -216,7 +218,22 @@ app.route('/')
 
 				});
 
-				//find Plugin slug
+				//find Plugin Singleton
+				replace({
+
+					regex: "PNameSingleton",
+
+					replacement: pluginNameSingleton,
+
+					paths:[destination + '/' + pluginSlug],
+
+					recursive: true,
+
+					silent: true
+
+				});
+
+				//find Plugin Shortname
 				replace({
 
 					regex: "PName",

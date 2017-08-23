@@ -18,7 +18,7 @@ npm install -g yo
 npm install -g generator-saucal-wppb
 ```
 
-Then go wp-content/plugins folder and generate your new plugins:
+Then go to `wp-content/plugins` folder and generate your new plugin:
 
 ```bash
 yo saucal-wppb

@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Bartosz Drewniak",
+      "authorEmail": "bart@saucal.com",
+      "authorUrl": "https://saucal.com"
+    }
+  }
+}

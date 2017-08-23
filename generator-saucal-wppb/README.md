@@ -5,7 +5,7 @@
 
 First, install [Yeoman](http://yeoman.io) and generator-saucal-wppb using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
-Currently generator not published to NPM repo and in this case to use this generator
+Currently generator in not published to NPM repo and in this case to use this generator
 
 ```bash
 cd generator-saucal-wppb

@@ -111,7 +111,9 @@ app.route('/')
 
 					re = /pname/gi;
 
-					newName = newName.replace(re, pluginNameShortPackage.toLowerCase());
+					var replace = pluginNameShortPackage.toLowerCase().replace(/_/gi, '-');
+
+					newName = newName.replace(re, replace);
 
 					fs.renameSync( file, newName);
 

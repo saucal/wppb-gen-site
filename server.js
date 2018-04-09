@@ -14,7 +14,7 @@ var fs = require('fs-extra');
 var mime = require('mime');
 var replace = require('replace');
 var bodyParser = require('body-parser')
-var EasyZip = require('easy-zip').EasyZip;
+var EasyZip = require('easy-zip2').EasyZip;
 var CronJob = require('cron').CronJob;
 var ua = require('universal-analytics');
 

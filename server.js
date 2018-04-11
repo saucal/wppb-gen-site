@@ -259,7 +259,7 @@ app.route('/')
 
 					regex: "pname",
 
-					replacement: pluginNameShortPackage.toLowerCase(),
+					replacement: pluginNameShortPackage.toLowerCase().replace(/_/gi, '-'),
 
 					paths:[destination + '/' + pluginSlug],
 

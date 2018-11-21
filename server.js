@@ -194,6 +194,21 @@ app.route('/')
 
 				});
 
+				//find Plugin Author
+				replace({
+
+					regex: "Your Name or Your Company",
+
+					replacement: pluginAuthor,
+
+					paths:[destination + '/' + pluginSlug],
+
+					recursive: true,
+
+					silent: true
+
+				});
+
 				//find Plugin_Name
 				replace({
 
